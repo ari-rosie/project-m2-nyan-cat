@@ -69,9 +69,8 @@ class Engine {
   // the burger never dies. In your exercises you will fix this method.
   isPlayerDead = () => {
     let playerDead = false;
-    let player = this.player;
     this.enemies.forEach(enemy => {
-    if (enemy.y + ENEMY_HEIGHT >= GAME_HEIGHT - PLAYER_HEIGHT - 10 && checkCollisionX(enemy.x, ENEMY_WIDTH, player.x, PLAYER_WIDTH)) playerDead = true;
+    if (enemy.y + ENEMY_HEIGHT >= GAME_HEIGHT - PLAYER_HEIGHT && checkCollision(enemy.x + 10, ENEMY_WIDTH - 10, this.player.x + 10, PLAYER_WIDTH - 10)) playerDead = true; //added and removed 10 so objects touch visually
     })
     return playerDead;
   };
