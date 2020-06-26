@@ -64,3 +64,15 @@ const addBackground = (root) => {
   whiteBox.style.background = '#fff';
   root.append(whiteBox);
 };
+
+//function to check COLLISION between 2 objects on axe X with MOVEMENT
+let checkCollisionX = (obj1X, obj1Width, obj2X, obj2Width) => {
+  let collision;
+  for (let i = obj1X; i <= obj1X + obj1Width; i++) { 
+    if(i >= obj2X && i <= obj2X + obj2Width) 
+      collision = true;
+    else
+      collision = false;  
+  }  
+  return collision;
+}
