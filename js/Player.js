@@ -16,7 +16,7 @@ class Player {
     // We create a DOM node. We will be updating the DOM node every time we move the player, so we store a reference to the
     // DOM node in a property.
     this.domElement = document.createElement('img');
-    this.domElement.src = 'images/player.png';
+    this.domElement.src = 'images/png/Idle (1).png';
     this.domElement.style.position = 'absolute';
     this.domElement.style.left = `${this.x}px`;
     this.domElement.style.top = ` ${y}px`;
@@ -30,7 +30,6 @@ class Player {
     if (this.x > 0) {
       this.x = this.x - PLAYER_WIDTH;
     }
-
     this.domElement.style.left = `${this.x}px`;
   }
 
@@ -40,5 +39,16 @@ class Player {
       this.x = this.x + PLAYER_WIDTH;
     }
     this.domElement.style.left = `${this.x}px`;
+  }
+
+  animateWalk = () => {
+    setTimeout(() => {
+      this.domElement.src = `images/png/Run (${FRAME}).png`;
+      if (FRAME === 8) 
+        FRAME = 1; 
+      else
+        FRAME++;
+      playerMoves = requestAnimationFrame(this.animateWalk);
+    }, 50);
   }
 }

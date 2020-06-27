@@ -57,6 +57,7 @@ class Engine {
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
+      cancelAnimationFrame(playerMoves);
       window.alert('Game over');
       return ;
     }

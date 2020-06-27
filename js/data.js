@@ -16,4 +16,7 @@ const MAX_ENEMIES = 3;
 
 // These constants represent the player width and height.
 const PLAYER_WIDTH = 75;
-const PLAYER_HEIGHT = 54;
+const PLAYER_HEIGHT = 150;
+
+// Player animation global variables
+let FRAME = 1;
