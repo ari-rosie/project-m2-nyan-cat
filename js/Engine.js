@@ -14,8 +14,12 @@ class Engine {
     // Initially, we have no enemies in the game. The enemies property refers to an array
     // that contains instances of the Enemy class
     this.enemies = [];
+    // We add the score board that keeps track of lifes left
+    this.lifeScore = new BoardItem('50px', '30px', theRoot);
+
     // We add the background image to the game
     addBackground(this.root);
+
   }
 
   // The gameLoop will run every few milliseconds. It does several things
@@ -23,6 +27,8 @@ class Engine {
   //  - Detects a collision between the player and any enemy
   //  - Removes enemies that are too low from the enemies array
   gameLoop = () => {
+
+    // this.lifeScore.domElement.innerText = LIFES.join(' ');
     // This code is to see how much time, in milliseconds, has elapsed since the last
     // time this method was called.
     // (new Date).getTime() evaluates to the number of milliseconds since January 1st, 1970 at midnight.
@@ -57,9 +63,13 @@ class Engine {
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
-      cancelAnimationFrame(playerMoves);
-      window.alert('Game over');
-      return ;
+      if (LIFES.length > 0) {
+        LIFES.pop();
+      } else {
+        cancelAnimationFrame(playerMoves);
+        restartButton();
+        return ;
+      }
     }
 
     // If the player is not dead, then we put a setTimeout to run the gameLoop in 20 milliseconds

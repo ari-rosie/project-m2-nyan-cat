@@ -20,3 +20,7 @@ const PLAYER_HEIGHT = 150;
 
 // Player animation global variables
 let FRAME = 1;
+let TIME_COUNT = 0;
+
+// Will determine how many lifes player starts with, minus 1 everytime he dies
+let LIFES = ['x', 'x', 'x', 'x'];

@@ -75,3 +75,12 @@ let checkCollision = (objPos1, objSize1, objPos2, objSize2) => {
   return collision;
 }
 
+//function to pop the restart button
+const restartButton = () => {
+  let btn = new BoardItem('150px', 'auto', document.querySelector('#app'));
+  btn.positionScreen('50%', '40%', '10');
+  btn.setStyle('pink', '5px', 'dotted 2px grey', 'pointer');
+  btn.addMessage('START NEW GAME?');
+  btn.domElement.onclick = () => location.reload();
+}
+

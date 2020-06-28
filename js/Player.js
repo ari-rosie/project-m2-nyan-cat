@@ -42,13 +42,13 @@ class Player {
   }
 
   animateWalk = () => {
-    setTimeout(() => {
-      this.domElement.src = `images/png/Run (${FRAME}).png`;
-      if (FRAME === 8) 
-        FRAME = 1; 
-      else
-        FRAME++;
-      playerMoves = requestAnimationFrame(this.animateWalk);
-    }, 50);
+    if (TIME_COUNT % 7 === 0){
+      (FRAME === 8) ? FRAME = 1 : FRAME++;
+      this.domElement.src = `images/png/Run (${FRAME}).png`;   
+    }
+    (TIME_COUNT === 60) ? TIME_COUNT = 0 : TIME_COUNT++;
+    playerMoves = requestAnimationFrame(this.animateWalk);
+
   }
+
 }
