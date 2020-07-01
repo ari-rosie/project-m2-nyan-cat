@@ -79,8 +79,9 @@ class Engine {
       if (LIFES.length > 1) {
         LIFES.pop();
       } else {
+        document.removeEventListener('keydown', keydownHandler);
         this.lifeScore.domElement.innerText = "GAME OVER";
-        cancelAnimationFrame(playerMoves);
+        this.player.stopWalk();
         exitGame.domElement.style.display = 'none';
         restartButton();
         return ;
@@ -93,7 +94,6 @@ class Engine {
       if (this.player.x + PLAYER_WIDTH / 2 >= door.left) {
         this.enemies.forEach(enemy => enemy.domElement.style.display = 'none');
         this.tacos.forEach(taco => taco.domElement.style.display = 'none');
-        cancelAnimationFrame(playerMoves);
         playerWin(this.player);
         return;
       }

@@ -25,23 +25,21 @@ const endMission = () => {
   exitGame.domElement.style.opacity = '1';
   FINAL = true;
 }
-
+let keydownHandler;
 
 // starts the first mission
 const gameStartFn = () => {
   const gameEngine = new Engine(appDiv);
-  let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
-  const keydownHandler = (event) => {
+  keydownHandler = (event) => {
     if (event.code === 'ArrowLeft') {
-      // FRAME = 0;
+      let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
       gameEngine.player.moveLeft();
   
   
     }
   
     if (event.code === 'ArrowRight') {
-      // FRAME = 0;
-      // let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
+      let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
       gameEngine.player.moveRight();
     }
   };

@@ -46,11 +46,20 @@ class Player {
   }
 
   animateWalk = () => {
-    (FRAME < 20) ? FRAME++ : FRAME = 0;      
+    if (FRAME < 20)
+      FRAME++;
+    else
+      FRAME = 0;
+
     let numStr = FRAME.toString();
-    this.domElement.src = `images/dog/rr_0${numStr.padStart(2, '0')}.png`;  
+    this.domElement.src = `images/dog/rr_0${numStr.padStart(2, '0')}.png`;   
+    this.stopWalk();
     playerMoves = requestAnimationFrame(this.animateWalk);
+
   }
 
+  stopWalk = () => {
+    cancelAnimationFrame(playerMoves);
+  }
 
 }
