@@ -11,7 +11,6 @@ class Engine {
     scoreBoard(this.lifeScore, '20px', '10%', '10', 'black', '30%', 'dotted 2px white', 'none', 'white');
     this.tacoScore = new BoardItem('80px', '30px', container);
     scoreBoard(this.tacoScore, '20px', '90%', '10', 'orange', '30%', 'solid 1px white', 'none', 'red');
-
   }
 
   // The gameLoop will run every few milliseconds. It does several things

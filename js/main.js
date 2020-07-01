@@ -1,4 +1,5 @@
 const container = document.querySelector('#app_container');// GAME WRAPPER DIV (non-disposable elements)
+container.style.width = `${GAME_WIDTH}px`;
 const appDiv = document.querySelector('#app'); // GAME MAIN DIVISION (disposable elements)
 LEVEL = 1;
 
