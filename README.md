@@ -1,5 +1,7 @@
 # Object Oriented Programming Game Project
 
+Don Bulhino Del Taco! Help him escape Dog-jail.. His secret weapon? TACOS!!!
+
 <p align="center"><img src="./images/screenshot.png"></p>
 
 # Introduction
