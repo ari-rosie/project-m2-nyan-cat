@@ -1,5 +1,5 @@
-const GAME_WIDTH = screen.width;
-const GAME_HEIGHT = screen.height -156;
+const GAME_WIDTH = window.innerWidth;
+const GAME_HEIGHT = window.innerHeight -156;
 
 const ENEMY_WIDTH = 113;
 const ENEMY_HEIGHT = 125;
@@ -11,6 +11,8 @@ const TACO_HEIGHT = 90;
 let FALLSPEED = 0.25;
 const PLAYER_WIDTH = 222;
 const PLAYER_HEIGHT = 150;
+
+let LEVEL;
 
 // Player animation global variables
 let FRAME = 1;

@@ -7,10 +7,10 @@ class Engine {
     addBackground(this.root);
 
     // adding score boards that keeps track of lifes left and tacos eaten
-    this.lifeScore = new BoardItem('100px', '30px', document.querySelector('#app'));
-    scoreBoard(this.lifeScore, '10px', '10px', '10', 'black', '30%', 'dotted 2px white', 'none', 'white');
-    this.tacoScore = new BoardItem('80px', '30px', document.querySelector('#app'));
-    scoreBoard(this.tacoScore, '10px', '80%', '10', 'orange', '30%', 'solid 1px white', 'none', 'red');
+    this.lifeScore = new BoardItem('100px', '30px', container);
+    scoreBoard(this.lifeScore, '20px', '10%', '10', 'black', '30%', 'dotted 2px white', 'none', 'white');
+    this.tacoScore = new BoardItem('80px', '30px', container);
+    scoreBoard(this.tacoScore, '20px', '90%', '10', 'orange', '30%', 'solid 1px white', 'none', 'red');
 
   }
 
@@ -81,7 +81,7 @@ class Engine {
       } else {
         document.removeEventListener('keydown', keydownHandler);
         this.lifeScore.domElement.innerText = "GAME OVER";
-        this.player.stopWalk();
+        // this.player.stopWalk();
         exitGame.domElement.style.display = 'none';
         restartButton();
         return ;
@@ -91,7 +91,7 @@ class Engine {
     // checks if the mission ended, when player reaches the door he wins
     if (FINAL === true) {
       let door = exitGame.domElement.getBoundingClientRect();
-      if (this.player.x + PLAYER_WIDTH / 2 >= door.left) {
+      if (this.player.x + (PLAYER_WIDTH / 2) >= door.left) {
         this.enemies.forEach(enemy => enemy.domElement.style.display = 'none');
         this.tacos.forEach(taco => taco.domElement.style.display = 'none');
         playerWin(this.player);
