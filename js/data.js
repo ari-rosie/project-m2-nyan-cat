@@ -17,7 +17,6 @@ let FRAME = 1;
 let TIME_COUNT = 0;
 let playerMoves;
 
-
 // Will determine how many lifes player starts with, minus 1 everytime he hits an enemy
 let LIFES = ['❤️', '❤️', '❤️', '❤️'];
 const MAX_LIFES = 4;

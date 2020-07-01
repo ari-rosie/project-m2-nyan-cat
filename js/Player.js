@@ -53,8 +53,7 @@ class Player {
     }
     else {
       FRAME = 0;
-      this.stopWalk();
-
+      cancelAnimationFrame(playerMoves);
     }    
     playerMoves = requestAnimationFrame(this.animateWalk);
 

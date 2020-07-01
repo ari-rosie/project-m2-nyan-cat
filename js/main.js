@@ -32,14 +32,14 @@ const gameStartFn = () => {
   const gameEngine = new Engine(appDiv);
   const keydownHandler = (event) => {
     if (event.code === 'ArrowLeft') {
-      requestAnimationFrame(gameEngine.player.animateWalk);
+      let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
       gameEngine.player.moveLeft();
   
   
     }
   
     if (event.code === 'ArrowRight') {
-      requestAnimationFrame(gameEngine.player.animateWalk);
+      let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
       gameEngine.player.moveRight();
     }
   };
@@ -48,5 +48,5 @@ const gameStartFn = () => {
   
   // We call the gameLoop method to start the game and set timer 
   gameEngine.gameLoop();  
-  setTimeout(endMission, 20000);
+  setTimeout(endMission, 2000);
 }
