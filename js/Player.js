@@ -60,7 +60,7 @@ class Player {
   }
 
   stopWalk = () => {
-    // cancelAnimationFrame(playerMoves);
+    cancelAnimationFrame(playerMoves);
   }
 
 }
