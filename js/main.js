@@ -48,5 +48,5 @@ const gameStartFn = () => {
   
   // We call the gameLoop method to start the game and set timer 
   gameEngine.gameLoop();  
-  setTimeout(endMission, 2000);
+  setTimeout(endMission, 20000);
 }
