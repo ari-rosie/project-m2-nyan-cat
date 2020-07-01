@@ -1,28 +1,52 @@
-// We create an instance of the Engine class. Looking at our index.html,
-// we see that it has a div with an id of `"app"`
-const gameEngine = new Engine(document.getElementById('app'));
-let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
-console.log(typeof playerMoves);
-// keydownHandler is a variable that refers to a function. The function has one parameter
-// (does the parameter name matter?) which is called event. As we will see below, this function
-// will be called every time the user presses a key. The argument of the function call will be an object.
-// The object will contain information about the key press, such as which key was pressed.
-const keydownHandler = (event) => {
-  // event.code contains a string. The string represents which key was press. If the
-  // key is left, then we call the moveLeft method of gameEngine.player (where is this method defined?)
-  if (event.code === 'ArrowLeft') {
-    gameEngine.player.moveLeft();
-  }
+// Welcome message to the game, will start on click
+const appDiv = document.querySelector('#app');
+let gameStart = new BoardItem('80%', 'auto', appDiv);
+gameStart.positionScreen('25%', '10%');
+gameStart.setStyle('black', '4px', 'dotted 5px white', 'pointer');
+gameStart.addMessage("Hello! My name is Don Bulihno Del Taco and I need your help to escape DOG JAIL! We have to avoid the evil officers and eat as many tacos as possible.. they will help us get extra strength! Use the left and right arrow to move, and exit thru the red door when you see it. (click to start)", 'white');
+gameStart.domElement.addEventListener('click', function () {
+  const bark = new Sound('sounds/barksnarl.mp3');
+  bark.play();
+  gameStart.domElement.style.display = 'none';
+  gameStartFn();
+});
 
-  // If `event.code` is the string that represents a right arrow keypress,
-  // then move our hamburger to the right
-  if (event.code === 'ArrowRight') {
-    gameEngine.player.moveRight();
-  }
-};
+//creating action sounds
+const badCollision = new Sound('sounds/bad.mp3');
+const goodCollision = new Sound('sounds/taco.mp3');
 
-// We add an event listener to document. document the ancestor of all DOM nodes in the DOM.
-document.addEventListener('keydown', keydownHandler);
+// accessing this exit means user ends game in success, will appear only after timeout
+const exitGame = new BoardItem('211px', '300px', appDiv);
+exitGame.domElement.style.opacity = '0';
+exitGame.domElement.innerHTML = "<img src='images/reddoor.png'>";
+exitGame.positionScreen('50%', '70%', '5');
+exitGame.domElement.style.position = 'absolute';
+const endMission = () => {
+  exitGame.domElement.style.opacity = '1';
+  FINAL = true;
+}
 
-// We call the gameLoop method to start the game
-gameEngine.gameLoop();
+
+// starts the first mission
+const gameStartFn = () => {
+  const gameEngine = new Engine(appDiv);
+  const keydownHandler = (event) => {
+    if (event.code === 'ArrowLeft') {
+      requestAnimationFrame(gameEngine.player.animateWalk);
+      gameEngine.player.moveLeft();
+  
+  
+    }
+  
+    if (event.code === 'ArrowRight') {
+      requestAnimationFrame(gameEngine.player.animateWalk);
+      gameEngine.player.moveRight();
+    }
+  };
+  
+  document.addEventListener('keydown', keydownHandler);
+  
+  // We call the gameLoop method to start the game and set timer 
+  gameEngine.gameLoop();  
+  setTimeout(endMission, 20000);
+}

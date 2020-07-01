@@ -3,6 +3,7 @@ class BoardItem {
         this.domElement = document.createElement('div');
         this.domElement.style.width = width;
         this.domElement.style.height = height;
+        this.domElement.style.transition = 'opacity 3s';  
         parentElement.appendChild(this.domElement);
         
     }
@@ -22,11 +23,11 @@ class BoardItem {
         this.domElement.style.cursor = cursor;
     }
 
-    addMessage(text) {
+    addMessage(text, color) {
         this.domElement.innerText = text;
         this.domElement.style.textAlign = 'center';
-        this.domElement.style.color = 'black';
-        this.domElement.style.padding = '10px';
+        this.domElement.style.color = color;
+        this.domElement.style.fontSize = '1.5em';
 
     }
 }

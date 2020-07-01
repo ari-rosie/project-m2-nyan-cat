@@ -6,9 +6,9 @@
 
 // The purpose of this function is to determine in which slot to place our next enemy.
 // The possibilities are 0, 1, 2, 3 or 4.
-const nextEnemySpot = (enemies) => {
+const nextEnemySpot = (enemies, enemyWidth) => {
   // enemySpots will refer to the number of spots available (can you calculate it?)
-  const enemySpots = GAME_WIDTH / ENEMY_WIDTH;
+  const enemySpots = GAME_WIDTH / enemyWidth;
 
   // To find out where to place an enemy, we first need to find out which are the spots available.
   // We don't want to place two enemies in the same lane. To accomplish this, we first create an
@@ -34,6 +34,8 @@ const nextEnemySpot = (enemies) => {
   return candidate;
 };
 
+
+
 // addBackground contains all the logic to display the starry background of the game.
 // It is a variable that refers to a function.
 // The function takes one parameter
@@ -43,7 +45,7 @@ const addBackground = (root) => {
   const bg = document.createElement('img');
 
   // We set its src attribute and the height and width CSS attributes
-  bg.src = 'images/stars.png';
+  bg.src = 'images/dogjail.jpg';
   bg.style.height = `${GAME_HEIGHT}px`;
   bg.style.width = `${GAME_WIDTH}px`;
 
@@ -82,5 +84,12 @@ const restartButton = () => {
   btn.setStyle('pink', '5px', 'dotted 2px grey', 'pointer');
   btn.addMessage('START NEW GAME?');
   btn.domElement.onclick = () => location.reload();
+}
+
+//function that shows a score board
+const scoreBoard = (board, top, left, z, bkg, radius, border, pointer, color) => {
+  board.positionScreen(top, left, z);
+  board.setStyle(bkg, radius, border, pointer);
+  board.domElement.style.color = color;
 }
 

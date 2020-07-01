@@ -16,7 +16,7 @@ class Player {
     // We create a DOM node. We will be updating the DOM node every time we move the player, so we store a reference to the
     // DOM node in a property.
     this.domElement = document.createElement('img');
-    this.domElement.src = 'images/png/Idle (1).png';
+    this.domElement.src = 'images/dog/rr_000.png';
     this.domElement.style.position = 'absolute';
     this.domElement.style.left = `${this.x}px`;
     this.domElement.style.top = ` ${y}px`;
@@ -27,28 +27,39 @@ class Player {
   // This method will be called when the user presses the left key. See in Engine.js
   // how we relate the key presses to this method
   moveLeft() {
+    this.domElement.style.transform = 'scaleX(-1)';
     if (this.x > 0) {
-      this.x = this.x - PLAYER_WIDTH;
+      this.x = this.x - PLAYER_WIDTH / 2;
     }
     this.domElement.style.left = `${this.x}px`;
+
   }
 
   // We do the same thing for the right key. See Engine.js to see when this happens.
   moveRight() {
+    this.domElement.style.transform = 'scaleX(1)';
     if (this.x + PLAYER_WIDTH < GAME_WIDTH) {
-      this.x = this.x + PLAYER_WIDTH;
+      this.x = this.x + PLAYER_WIDTH / 2;
     }
     this.domElement.style.left = `${this.x}px`;
+
   }
 
   animateWalk = () => {
-    if (TIME_COUNT % 7 === 0){
-      (FRAME === 8) ? FRAME = 1 : FRAME++;
-      this.domElement.src = `images/png/Run (${FRAME}).png`;   
-    }
-    (TIME_COUNT === 60) ? TIME_COUNT = 0 : TIME_COUNT++;
+    if (FRAME < 20)
+      FRAME++;
+    else
+      FRAME = 0;
+
+    let numStr = FRAME.toString();
+    this.domElement.src = `images/dog/rr_0${numStr.padStart(2, '0')}.png`;   
+    this.stopWalk();
     playerMoves = requestAnimationFrame(this.animateWalk);
 
+  }
+
+  stopWalk = () => {
+    cancelAnimationFrame(playerMoves);
   }
 
 }
