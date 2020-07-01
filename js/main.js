@@ -36,13 +36,13 @@ const gameStartFn = () => {
   let gameEngine = new Engine(appDiv);
   keydownHandler = (event) => {
     if (event.code === 'ArrowLeft') {
-      // let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
+      let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
       gameEngine.player.moveLeft(); 
   
     }
   
     if (event.code === 'ArrowRight') {
-      // let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
+      let playerMoves = requestAnimationFrame(gameEngine.player.animateWalk);
       gameEngine.player.moveRight();
     }
   };

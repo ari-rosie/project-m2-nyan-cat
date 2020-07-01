@@ -81,7 +81,7 @@ class Engine {
       } else {
         document.removeEventListener('keydown', keydownHandler);
         this.lifeScore.domElement.innerText = "GAME OVER";
-        // this.player.stopWalk();
+        this.player.stopWalk();
         exitGame.domElement.style.display = 'none';
         restartButton();
         return ;

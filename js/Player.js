@@ -46,6 +46,8 @@ class Player {
   }
 
   animateWalk = () => {
+  
+  animate = setInterval(() => {
     if (FRAME < 20)
       FRAME++;
     else
