@@ -54,7 +54,7 @@ class Player {
     let numStr = FRAME.toString();
     this.domElement.src = `images/dog/rr_0${numStr.padStart(2, '0')}.png`;   
     this.stopWalk();
-    playerMoves = requestAnimationFrame(this.animateWalk);
+    playerMoves = window.requestAnimationFrame(this.animateWalk);
 
   }
 
