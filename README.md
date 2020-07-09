@@ -1,12 +1,6 @@
 # Don Bulihno Del Taco
 
-<<<<<<< HEAD
 <img src="./images/bullihno_start.png">
-=======
-Don Bulhino Del Taco! Help him escape Dog-jail.. His secret weapon? TACOS!!!
-
-<p align="center"><img src="./images/screenshot.png"></p>
->>>>>>> 4b48a07ccd4bf621cc6e828dc4c475013c28c63d
 
 
 ## Meet Bulihno, the world's most famous 'Dogster'. He got thrown in dog-jail for bone-trafficking and he needs your help to get back home before the Cat Mob takes over his town! First step: let's escape jail..
