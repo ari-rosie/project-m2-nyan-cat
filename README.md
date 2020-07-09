@@ -15,3 +15,5 @@ Use the left and right arrow on the keyboard to move Bulihno. If you get to clos
 <img src="./images/next_start.png">
 
 <img src="./images/citygame.png">
+
+# [Play game!](https://ari-rosie.netlify.app/)
